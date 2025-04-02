@@ -4,7 +4,7 @@ import pandas as pd
 import subprocess
 from report_generator import generate_reports
 
-POINTS_PER_PASS = 2
+POINTS_PER_PASS = 4
 
 def evaluate_student_code(student_id, student_file):
     print(f"🔍 Evaluating code for {student_id}...")
@@ -68,7 +68,7 @@ def run_all():
         student_dir = f"student_repos/{student_id}"
         os.makedirs(student_dir, exist_ok=True)
 
-        scp_command = f"scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@{ip}:/home/ubuntu/Desktop/python-hospital-patient-management/student_workspace/solution.py {student_dir}/solution.py"
+        scp_command = f"scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@{ip}:/home/ubuntu/hospital_patient_management_final/student_workspace/solution.py {student_dir}/solution.py"
         print(f"🔄 Running SCP: {scp_command}")
         os.system(scp_command)
 
